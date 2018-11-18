@@ -1,0 +1,15 @@
+library(MODISTools)
+library(gdalUtils)
+library(sp)
+library(raster)
+library(bitops)
+library(RCurl)
+library(rgdal)
+
+home<-"/home/roberto/Documents/MODIS2.0/"
+HDFS<-paste(home,"hdfs",sep="")
+scripts<-paste(home,"scripts/",sep="")
+modisDown<-paste(scripts,"ModisDownload.R",sep="")
+setwd(HDFS)
+source(modisDown)
+ModisDownload(x='MOD13Q1',h=c(7,8,9), v=c(5,6,7),dates=c('2000.01.01', '2017.01.01'))
